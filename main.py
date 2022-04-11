@@ -1,7 +1,7 @@
 import mysql.connector as connector
 class DatabaseHelper:
     def __init__(self):
-        self.con=connector.connect(host='localhost',port='3306',user='root',password='Rizwan42662@',database='sys')
+        self.con=connector.connect(host='localhost',port='3306',user='root',password='*******',database='databaseName')
         query='create table if not exists user(user_id int primary key,user_name varchar(50),phone varchar(13))'
         cur=self.con.cursor()
         cur.execute(query)
