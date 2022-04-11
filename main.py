@@ -16,7 +16,7 @@ class DatabaseHelper:
         query="select * from user";
         cursor=self.con.cursor();
         cursor.execute(query);
-        self.con.commit()
+    
         for data in cursor:
             print(data)
     def getSingleData(self,user_id):
@@ -32,11 +32,24 @@ class DatabaseHelper:
         cursor.execute(query);
         self.con.commit()
         print('Deleted Successfully...!!!');
+    
+    def update(self,user_id,new_name):
+        query="update user set user_name='{}' where user_id={}".format(new_name,user_id);
+        cursor=self.con.cursor();
+        cursor.execute(query);
+        self.con.commit();
+     
+        print('Updated Successfully...!!!');
+
+
+
 
 helper=DatabaseHelper();
+helper.getAllData();
+helper.update(4,'rizwan iqbal')
 # helper.deleteOne(3);
 # helper.getSingleData(3)
-helper.getAllData();
+
 # helper.insertData(2,'rabeeb aqdas khan','03131057073');
 # helper.insertData(3,'abdul hai  khan','03131057074');
 # helper.insertData(4,'umar farooq','03131057076');
